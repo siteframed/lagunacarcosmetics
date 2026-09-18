@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#05070c" />
+  <title>Laguna Autókozmetika — Pécs</title>
+  <meta name="description" content="Prémium autókozmetika Pécsen. Precíz tisztítás, ragyogó végeredmény, korrekt árak." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg:#05070c; --panel:#0a101b; --panel2:#0d1726; --line:rgba(151,182,224,.18); --text:#f4f7fb; --muted:#9aa8bb; --blue:#56a8ff; --blue2:#174b82; --cyan:#84d2ff; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; color:var(--text); background:var(--bg); font-family:'DM Sans',sans-serif; line-height:1.5; overflow-x:hidden; }
+    body:before { content:""; position:fixed; inset:0; pointer-events:none; opacity:.22; background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px); background-size:64px 64px; mask-image:linear-gradient(to bottom,black,transparent 75%); }
+    h1,h2,h3,p { margin:0; } h1,h2,h3,.logo,.eyebrow { font-family:'Space Grotesk',sans-serif; }
+    a { color:inherit; text-decoration:none; }
+    .container { width:min(1160px,calc(100% - 40px)); margin:auto; }
+    header { position:fixed; z-index:10; top:0; left:0; right:0; background:rgba(5,7,12,.72); backdrop-filter:blur(18px); border-bottom:1px solid rgba(255,255,255,.07); }
+    nav { height:78px; display:flex; align-items:center; justify-content:space-between; }
+    .logo { display:flex; gap:11px; align-items:center; font-weight:700; letter-spacing:.04em; }
+    .logo-mark { width:34px; height:34px; border:1px solid var(--blue); border-radius:10px 4px 10px 4px; position:relative; box-shadow:0 0 22px rgba(86,168,255,.4); }
+    .logo-mark:after { content:""; position:absolute; width:13px; height:13px; border:2px solid var(--cyan); border-radius:50%; left:9px; top:9px; }
+    .logo small { display:block; font-family:'DM Sans'; font-size:10px; color:var(--muted); letter-spacing:.19em; font-weight:600; }
+    .links { display:flex; gap:30px; color:#b8c6d7; font-size:14px; font-weight:600; }
+    .links a { transition:.25s; } .links a:hover { color:var(--cyan); text-shadow:0 0 18px rgba(132,210,255,.75); }
+    .nav-cta,.button { padding:12px 18px; border:1px solid rgba(132,210,255,.45); background:linear-gradient(135deg,#103b69,#0c1c32); border-radius:8px; color:white; font-weight:700; font-size:13px; box-shadow:0 0 0 rgba(86,168,255,0); transition:.25s; }
+    .nav-cta:hover,.button:hover { transform:translateY(-3px); box-shadow:0 0 30px rgba(43,139,232,.38); border-color:var(--cyan); }
+    .menu { display:none; background:none; color:white; border:0; font-size:26px; }
+    .hero { min-height:760px; padding:170px 0 100px; position:relative; display:flex; align-items:center; }
+    .hero:after { content:""; position:absolute; z-index:-1; right:-5%; top:100px; width:65%; height:640px; background:radial-gradient(ellipse,rgba(26,87,145,.33),transparent 65%); }
+    .hero-grid { display:grid; grid-template-columns:1fr 1fr; gap:70px; align-items:center; }
+    .eyebrow { color:var(--cyan); letter-spacing:.18em; font-size:11px; font-weight:700; text-transform:uppercase; margin-bottom:22px; display:flex; align-items:center; gap:12px; }
+    .eyebrow:before { content:""; width:34px; height:1px; background:var(--cyan); box-shadow:0 0 10px var(--cyan); }
+    h1 { font-size:clamp(48px,6.4vw,86px); line-height:.98; letter-spacing:-.065em; max-width:640px; }
+    h1 span { color:var(--cyan); text-shadow:0 0 35px rgba(86,168,255,.25); }
+    .hero-copy { margin-top:25px; max-width:480px; color:var(--muted); font-size:17px; }
+    .hero-actions { display:flex; gap:14px; margin-top:34px; flex-wrap:wrap; }
+    .button.secondary { background:transparent; border-color:var(--line); color:#c3d2e4; }
+    .hero-meta { display:flex; gap:28px; margin-top:54px; font-size:12px; color:var(--muted); }
+    .hero-meta strong { display:block; color:white; font-size:17px; margin-bottom:4px; }
+    .hero-visual { position:relative; min-height:500px; }
+    .hero-img { position:absolute; inset:0 0 0 30px; border-radius:26px; overflow:hidden; border:1px solid rgba(132,210,255,.28); transform:rotate(2deg); box-shadow:18px 28px 65px rgba(0,0,0,.65),0 0 55px rgba(24,88,146,.22); }
+    .hero-img img { width:100%; height:100%; object-fit:cover; object-position:center; filter:saturate(.75) contrast(1.1); }
+    .hero-img:after { content:""; position:absolute; inset:0; background:linear-gradient(135deg,rgba(8,31,58,.18),transparent 45%,rgba(0,5,12,.65)); }
+    .badge { position:absolute; z-index:2; left:0; bottom:48px; background:rgba(8,15,26,.88); backdrop-filter:blur(10px); border:1px solid var(--line); border-radius:10px; padding:16px 18px; font-size:13px; box-shadow:0 12px 30px #000; }
+    .badge b { display:block; color:var(--cyan); font-size:23px; font-family:'Space Grotesk'; }
+    section { padding:105px 0; position:relative; }
+    .section-head { display:flex; justify-content:space-between; align-items:end; gap:20px; margin-bottom:38px; }
+    .section-head h2 { font-size:clamp(31px,4vw,48px); letter-spacing:-.05em; }
+    .section-head p { max-width:380px; color:var(--muted); font-size:14px; }
+    .services { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    .card { background:linear-gradient(145deg,rgba(14,27,44,.88),rgba(7,12,20,.9)); border:1px solid var(--line); border-radius:14px; padding:28px; min-height:205px; transition:.3s; }
+    .card:hover { transform:translateY(-8px); border-color:rgba(132,210,255,.68); box-shadow:0 12px 38px rgba(27,112,190,.2),0 0 26px rgba(86,168,255,.13); }
+    .card-num { color:var(--blue); font-family:'Space Grotesk'; font-weight:bold; font-size:13px; }
+    .card h3 { margin:29px 0 10px; font-size:21px; } .card p { color:var(--muted); font-size:14px; }
+    .gallery { display:grid; grid-template-columns:1.25fr .75fr .75fr; gap:16px; height:450px; }
+    .gallery figure { margin:0; position:relative; overflow:hidden; border-radius:14px; border:1px solid var(--line); background:#101a29; }
+    .gallery figure:first-child { grid-row:span 2; } .gallery figure img { width:100%; height:100%; object-fit:cover; transition:.5s; filter:brightness(.78) saturate(.7); }
+    .gallery figure:hover img { transform:scale(1.07); filter:brightness(1) saturate(1); } .gallery figure:hover { box-shadow:0 0 32px rgba(86,168,255,.26); }
+    .gallery figcaption { position:absolute; bottom:0; left:0; right:0; padding:34px 17px 17px; background:linear-gradient(transparent,rgba(0,0,0,.85)); font-size:13px; color:#d9eaff; }
+    .reviews-wrap { background:linear-gradient(110deg,#091321,#07101d); border-block:1px solid var(--line); }
+    .reviews { display:grid; grid-template-columns:repeat(4,1fr); gap:13px; }
+    .review { padding:22px; border:1px solid var(--line); border-radius:12px; background:rgba(4,9,16,.55); transition:.3s; } .review:hover { border-color:var(--cyan); box-shadow:0 0 26px rgba(86,168,255,.15); }
+    .stars { color:#7dceff; letter-spacing:2px; font-size:12px; margin-bottom:22px; } .review p { color:#d8e2ed; font-size:14px; line-height:1.65; } .review cite { display:block; margin-top:17px; font-size:11px; color:var(--muted); font-style:normal; }
+    .contact { display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:center; } .contact h2 { font-size:clamp(35px,4vw,58px); line-height:1; letter-spacing:-.06em; margin:12px 0 20px; } .contact-copy { color:var(--muted); max-width:450px; }
+    .contact-info { display:grid; gap:12px; } .info { padding:22px 24px; display:flex; justify-content:space-between; align-items:center; background:var(--panel); border:1px solid var(--line); border-radius:12px; transition:.25s; } .info:hover { border-color:var(--cyan); transform:translateX(5px); box-shadow:0 0 28px rgba(86,168,255,.15); } .info span { color:var(--muted); font-size:12px; text-transform:uppercase; letter-spacing:.12em; } .info strong { font-size:16px; }
+    footer { padding:27px 0; border-top:1px solid rgba(255,255,255,.08); color:#718095; font-size:12px; } footer .container { display:flex; justify-content:space-between; }
+    @media(max-width:800px) { .links,.nav-cta { display:none; } .menu { display:block; } nav { height:68px; } .container { width:min(100% - 28px,600px); } .hero { padding-top:120px; min-height:auto; } .hero-grid,.contact { grid-template-columns:1fr; gap:40px; } .hero-visual { min-height:390px; } .hero-img { inset:0 10px 0 20px; } .hero-meta { margin-top:38px; } section { padding:74px 0; } .services,.reviews { grid-template-columns:1fr; } .gallery { height:600px; grid-template-columns:1fr 1fr; } .gallery figure:first-child { grid-column:span 2; grid-row:span 1; } .section-head { display:block; } .section-head p { margin-top:14px; } footer .container { display:block; } footer span { display:block; margin-top:8px; } }
+    @media(max-width:430px) { h1 { font-size:52px; } .hero-visual { min-height:320px; } .gallery { height:520px; gap:9px; } .hero-meta { gap:17px; } .info { display:block; } .info strong { display:block; margin-top:5px; } }
+  </style>
+</head>
+<body>
+  <header><nav class="container"><a class="logo" href="#top"><i class="logo-mark"></i><span>LAGUNA<small>AUTÓKOZMETIKA</small></span></a><div class="links"><a href="#szolgaltatasok">Szolgáltatások</a><a href="#munka">Munkáink</a><a href="#velemenyek">Vélemények</a><a href="#kapcsolat">Kapcsolat</a></div><a class="nav-cta" href="tel:+36305289202">Időpontot kérek</a><button class="menu" aria-label="Menü">☰</button></nav></header>
+  <main id="top">
+    <section class="hero"><div class="container hero-grid"><div><div class="eyebrow">Autóápolás Pécsen</div><h1>Az autód<br><span>jobb formája.</span></h1><p class="hero-copy">Precíz tisztítás, látható eredmény. A Laguna Autókozmetika azért dolgozik, hogy minden alkalommal jó érzés legyen visszaülni az autódba.</p><div class="hero-actions"><a class="button" href="#kapcsolat">Időpontfoglalás <span>↗</span></a><a class="button secondary" href="#szolgaltatasok">Mit kínálunk?</a></div><div class="hero-meta"><div><strong>5.0 ★</strong>elégedett ügyfelek</div><div><strong>45 perc</strong>akár expressz tisztítás</div><div><strong>Pécs</strong>Siklósi út 45.</div></div></div><div class="hero-visual"><div class="hero-img"><img src="../laguna-hero.png" alt="Ragyogó piros autó a Laguna Autókozmetikánál"></div><div class="badge"><b>01 / 03</b>Ragyogás kívül-belül</div></div></div></section>
+    <section id="szolgaltatasok"><div class="container"><div class="section-head"><div><div class="eyebrow">Amit csinálunk</div><h2>Tiszta részletek.<br>Erős benyomás.</h2></div><p>Nem csak tisztítunk — odafigyelünk azokra a részletekre is, amelyek igazán számítanak.</p></div><div class="services"><article class="card"><span class="card-num">01 / KÜLSŐ</span><h3>Külső frissítés</h3><p>Alapos kézi mosás, szárítás és a karosszéria ragyogóvá tétele, kíméletes odafigyeléssel.</p></article><article class="card"><span class="card-num">02 / BELSŐ</span><h3>Belső mélytisztítás</h3><p>Ülések, szőnyegek, műszerfal és minden nehezen elérhető rész tisztán, frissen.</p></article><article class="card"><span class="card-num">03 / KOMPLEX</span><h3>Teljes kozmetika</h3><p>Kívül-belül újjászületik az autó. Ideális választás eladás előtt vagy egyszerűen csak magadnak.</p></article></div></div></section>
+    <section id="munka"><div class="container"><div class="section-head"><div><div class="eyebrow">A műhelyből</div><h2>Így dolgozunk.</h2></div><p>A jó munka látszik. Lapozd végig néhány kedvenc pillanatunkat.</p></div><div class="gallery"><figure><img src="../laguna-detail.png" alt="Fekete autó tisztítása a műhelyben"><figcaption>Figyelem minden felületre</figcaption></figure><figure><img src="../laguna-hero.png" alt="Piros autó a szerviz előtt"><figcaption>Gondos külső ápolás</figcaption></figure><figure><img src="../laguna-garage.png" alt="Ezüst autó a garázsban"><figcaption>Ragyogó végeredmény</figcaption></figure></div></div></section>
+    <section class="reviews-wrap" id="velemenyek"><div class="container"><div class="section-head"><div><div class="eyebrow">Ügyfeleink mondták</div><h2>Nem csak mi<br>mondjuk.</h2></div><p>Az elégedett ügyfél a legjobb visszajelzés. Köszönjük a bizalmat!</p></div><div class="reviews"><article class="review"><div class="stars">★★★★★</div><p>„Jó ár-érték arány. Bő háromnegyed óra alatt tökeletesen kitisztították az autót kívül-belül.”</p><cite>— Igazolt vélemény</cite></article><article class="review"><div class="stars">★★★★★</div><p>„Nagyon meg vagyok velük elégedve, csak ajánlani tudom másoknak is.”</p><cite>— Igazolt vélemény</cite></article><article class="review"><div class="stars">★★★★★</div><p>„Legjobb a városban, korrekt kiszolgálás és árak, csak ajánlani tudom.”</p><cite>— Igazolt vélemény</cite></article><article class="review"><div class="stars">★★★★★</div><p>„Precíz, gyors munka, melyhez kedvesség és jó ár is társul.”</p><cite>— Igazolt vélemény</cite></article></div></div></section>
+    <section id="kapcsolat"><div class="container contact"><div><div class="eyebrow">Készen állsz?</div><h2>Add vissza az<br><span style="color:var(--cyan)">autód fényét.</span></h2><p class="contact-copy">Írj vagy hívj minket, és egyeztetünk egy kényelmes időpontot. Gyorsan, egyszerűen, korrekt módon.</p><div class="hero-actions"><a class="button" href="tel:+36305289202">Hívás indítása ↗</a></div></div><div class="contact-info"><a class="info" href="tel:+36305289202"><span>Telefon</span><strong>06 30 528 9202</strong></a><a class="info" href="https://maps.google.com/?q=Pécs,+Siklósi+út+45" target="_blank" rel="noopener"><span>Cím</span><strong>Pécs, Siklósi út 45, 7632 ↗</strong></a><div class="info"><span>Nyitva</span><strong>Bejelentkezés alapján</strong></div></div></div></section>
+  </main>
+  <footer><div class="container"><b>LAGUNA AUTÓKOZMETIKA</b><span>© 2024 Laguna. Minden jog fenntartva.</span></div></footer>
+  <script>document.querySelector('.menu').addEventListener('click',()=>{const l=document.querySelector('.links'); l.style.display=l.style.display==='flex'?'none':'flex'; l.style.position='absolute'; l.style.top='68px'; l.style.left='14px'; l.style.right='14px'; l.style.padding='18px'; l.style.background='#0a101b'; l.style.border='1px solid rgba(151,182,224,.18)'; l.style.borderRadius='12px'; l.style.flexDirection='column';});</script>
+</body>
+</html>
